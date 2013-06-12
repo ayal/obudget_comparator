@@ -1,4 +1,4 @@
-alert(1)
+alert(2)
 L = (x...) -> console.log x...
 
 formatNumber = (n,decimals) ->

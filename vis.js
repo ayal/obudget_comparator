@@ -8,7 +8,7 @@
   iced = require('iced-coffee-script').iced;
   __iced_k = __iced_k_noop = function() {};
 
-  alert(1);
+  alert(2);
 
   L = function() {
     var x;
