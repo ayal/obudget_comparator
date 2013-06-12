@@ -46,8 +46,6 @@
   };
   __iced_k = __iced_k_noop = function() {};
 
-  alert(2);
-
   L = function() {
     var x;
     x = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
@@ -465,11 +463,21 @@
     };
 
     BubbleChart.prototype.render = function() {
-      var container, fb_iframe, frame, overlay, resizeFrame, search, setBreadcrumbs, tagClicked, tags, that, ___iced_passed_deferral, __iced_deferrals, __iced_k,
+      var container, frame, lasturlpart, likeref, likeurlparts, newlikeref, overlay, resizeFrame, search, setBreadcrumbs, tagClicked, tags, that, ___iced_passed_deferral, __iced_deferrals, __iced_k,
         _this = this;
       __iced_k = __iced_k_noop;
       ___iced_passed_deferral = iced.findDeferral(arguments);
       that = this;
+      console.log('how many likes', $(document.getElementsByTagName('fb:like')).size());
+      likeref = $(document.getElementsByTagName('fb:like')).attr('href');
+      likeurlparts = likeref.split('/');
+      likeurlparts.splice(-1);
+      lasturlpart = location.href.split('/').splice(-1)[0];
+      likeurlparts.push(lasturlpart + '.html');
+      newlikeref = likeurlparts.join('/');
+      console.log('new like url', newlikeref);
+      $(document.getElementsByTagName('fb:like')).attr('href', newlikeref);
+      FB.XFBML.parse();
       $("div[data-id='" + this.id + "'] .btnDownload").attr("href", "/images/large/" + (this.model.get('field')) + ".jpg");
       setBreadcrumbs = function(dd) {
         var bc, linkCode;
@@ -659,7 +667,6 @@
       if (this.force !== null) {
         this.force.stop();
       }
-      fb_iframe = '<fb:like href="http://compare.open-budget.org.il/p/' + (this.model.get('field')) + '.html" send="false" layout="button_count" width="200" show_faces="false"></fb:like>';
       this.force = d3.layout.force().nodes(this.nodes).size([this.width, this.height]).gravity(-0.01).charge(this.defaultCharge).friction(0.9).on("tick", function(e) {
         var avgx, maxx, minx, num;
         maxx = 0;
@@ -691,7 +698,7 @@
               return __iced_deferrals.ret = arguments[0];
             };
           })(),
-          lineno: 521
+          lineno: 533
         })), 100);
         __iced_deferrals._fulfill();
       })(function() {
