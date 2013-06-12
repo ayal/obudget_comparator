@@ -1,4 +1,4 @@
-alert(1);
+alert(1)
 L = (x...) -> console.log x...
 
 formatNumber = (n,decimals) ->
@@ -6,7 +6,7 @@ formatNumber = (n,decimals) ->
         negativePrefix = ""
         negativeSuffix = ""
         if (n < 0)
-                negativePrefix = " הכנסה של"
+                negativePrefix = " ????? ??"
                 negativeSuffix = ""
                 n = -n
         if (n >= 1000000000000)
@@ -14,11 +14,11 @@ formatNumber = (n,decimals) ->
                 n = n / 1000000000000
                 decimals = 2
         else if n >= 1000000000
-                suffix = " מיליארד"
+                suffix = " ???????"
                 n = n / 1000000000
                 decimals = 1
         else if n >= 1000000
-                suffix = " מיליון"
+                suffix = " ??????"
                 n = n / 1000000
                 decimals = 1
         prefix = ""
@@ -218,13 +218,13 @@ class BubbleChart extends Backbone.View
         	    	###
 
                         if ((n[currentYearDataColumn] > 0) && (n[previousYearDataColumn] < 0))
-                                out.changestr = "הפך מהכנסה להוצאה"
+                                out.changestr = "??? ?????? ??????"
                                 out.changeCategory = 3
                         if ((n[currentYearDataColumn] < 0) && (n[previousYearDataColumn] > 0))
-                                out.changestr = "הפך מהוצאה להכנסה"
+                                out.changestr = "??? ?????? ??????"
                                 out.changeCategory = 3
                         if (n.c==99999)
-                                out.changestr = "תוקצב מחדש"
+                                out.changestr = "????? ????"
                                 out.changeCategory = 3
 
 
@@ -314,7 +314,7 @@ class BubbleChart extends Backbone.View
 
                         $("div[data-id='#{@id}'] .breadcrumbsLink").remove()
                         $("div[data-id='#{@id}'] .breadcrumbs").append('<a class="breadcrumbsLink" target="_new" href="http://budget.msh.gov.il/#'+linkCode+
-                                ',2013,0,1,1,1,0,0,0,0,0,0" class="active" target="top" data-toggle="tooltip" title="מידע היסטורי אודות הסעיף הנוכחי">'+bc+
+                                ',2013,0,1,1,1,0,0,0,0,0,0" class="active" target="top" data-toggle="tooltip" title="???? ??????? ????? ????? ??????">'+bc+
                                 '</a>')
                         $("div[data-id='#{@id}'] .breadcrumbsLink").tooltip()
 
@@ -340,7 +340,7 @@ class BubbleChart extends Backbone.View
                 #                return item
                 #)
                 search.select2(
-                        placeholder: "חפשו סעיף ספציפי"
+                        placeholder: "???? ???? ??????"
                         allowClear: true
                         data: @titles
                 )
@@ -517,7 +517,8 @@ class BubbleChart extends Backbone.View
                                                 )
                                                 .attr("cx", (d) -> d.x - avgx )
                                                 .attr("cy", (d) -> d.y )
-                                        ).start()
+                                        )
+                        .start()
                 await setTimeout((defer _),100)
                 window.FB?.XFBML?.parse()
 
@@ -546,7 +547,7 @@ handleNewState = () ->
                 el = $("div[data-id='#{id}'] .chart")
                 if el.size() == 0
                         console.log "creating chart "+id
-                        title = state.selectedStory?.title or "השווה את התקציב"
+                        title = state.selectedStory?.title or "????? ?? ??????"
                         subtitle = state.selectedStory?.subtitle or ""
                         template = _.template( $("#chart-template").html(),{ id: id, title:title, subtitle:subtitle } )
                         $("#charts").append template
@@ -670,7 +671,7 @@ window.handleStories = (data) ->
                                 break
         firstquery = state.querys[0]
         if !state.selectedStory
-                state.selectedStory = { 'title':budget_array_data[firstquery].t, 'subtitle':'כך הממשלה מתכוונת להוציא מעל 400 מיליארד שקלים. העבירו את העכבר מעל לעיגולים וגלו כמה כסף מקדישה הממשלה לכל מטרה. לחצו על עיגול בשביל לצלול לעומק התקציב ולחשוף את הפינות החבויות שלו'}
+                state.selectedStory = { 'title':budget_array_data[firstquery].t, 'subtitle':'?? ?????? ??????? ?????? ??? 400 ??????? ?????. ?????? ?? ????? ??? ???????? ???? ??? ??? ?????? ?????? ??? ????. ???? ?? ????? ????? ????? ????? ?????? ?????? ?? ?????? ??????? ???'}
 
         _state = History.getState()
         console.log "getState: ",_state
