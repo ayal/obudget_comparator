@@ -298,14 +298,14 @@ class BubbleChart extends Backbone.View
                 that = this
 
                 #rerender like
-                dummy_url = 'http://compare.open-budget.org.il/p/klxlq44.html'
+                dummy_url = 'http://ayal.github.io/obudget_comparator/vis.html?klxlq126/klxlq44/klxlq1219'
                 console.log('how many likes', $('.fblike').size())
                 likeref = dummy_url
                 likeurlparts = likeref.split('/')
                 likeurlparts.splice(-1)
                 lasturlpart = location.href.split('/').splice(-1)[0]
                 likeurlparts.push(lasturlpart + '.html')
-                newlikeref = '//www.facebook.com/plugins/like.php?href=' + encodeURIComponent(likeurlparts.join('/')) + '&send=false&layout=button_count&width=450&show_faces=false&font&colorscheme=light&action=like&height=200&appId=469139063167385'
+                newlikeref = '//www.facebook.com/plugins/like.php?href=' + encodeURIComponent(likeurlparts.join('/')) + '&send=false&layout=button_count&width=450&show_faces=false&font&colorscheme=light&action=like&height=200'
                 console.log('new like url', newlikeref)
                 $('.fblike').attr('src', newlikeref)
 #                FB.XFBML.parse()
