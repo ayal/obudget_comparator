@@ -308,7 +308,7 @@ class BubbleChart extends Backbone.View
                 newlikeref = '//www.facebook.com/plugins/like.php?href=' + encodeURIComponent(likeurlparts.join('/')) + '&amp;send=false&amp;layout=button_count&amp;width=100&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=469139063167385'
                 console.log('new like url', newlikeref)
                 $('.fblike').attr('src', newlikeref)
-                FB.XFBML.parse()
+#                FB.XFBML.parse()
                 #
 
                 $("div[data-id='#{@id}'] .btnDownload").attr("href","/images/large/#{@model.get 'field'}.jpg")
