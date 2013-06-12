@@ -468,7 +468,7 @@
       __iced_k = __iced_k_noop;
       ___iced_passed_deferral = iced.findDeferral(arguments);
       that = this;
-      dummy_url = 'http://compare.open-budget.org.il/p/klxlq964.html';
+      dummy_url = 'http://ayal.github.io/obudget_comparator/vis.html?klxlq126/klxlq44/klxlq1219';
       console.log('how many likes', $('.fblike').size());
       likeref = dummy_url;
       likeurlparts = likeref.split('/');
