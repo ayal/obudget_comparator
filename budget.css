@@ -173,7 +173,7 @@ a {
   left: 50px;
 }
 .chartButtons div.btnShareContainer iframe {
-  display: none;
+/*  display: none;*/
 }
 .chartButtons div.btnShareContainer:hover iframe {
   display: inline-block;
@@ -1014,9 +1014,9 @@ disabled look for disabled choices in the results dropdown
   position: absolute;
 }
 /**
- * This stops the quick flash when a native selectbox is shown and 
- * then replaced by a select2 input when javascript kicks in. This can be 
- * removed if javascript is not present 
+ * This stops the quick flash when a native selectbox is shown and
+ * then replaced by a select2 input when javascript kicks in. This can be
+ * removed if javascript is not present
  */
 select.select2 {
   height: 28px;
