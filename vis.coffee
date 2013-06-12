@@ -298,7 +298,7 @@ class BubbleChart extends Backbone.View
                 that = this
 
                 #rerender like
-                dummy_url = '"http://ayal.github.io/obudget_comparator/p/klxlq2401.html"';
+                dummy_url = "http://ayal.github.io/obudget_comparator/p/klxlq2401.html";
 #                dummy_url = 'http://compare.open-budget.org.il/p/klxlq964.html'
                 console.log('how many likes', $('.fblike').size())
                 likeref = dummy_url
