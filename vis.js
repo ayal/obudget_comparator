@@ -5,7 +5,45 @@
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  iced = require('iced-coffee-script').iced;
+  iced = {
+    Deferrals: (function() {
+      function _Class(_arg) {
+        this.continuation = _arg;
+        this.count = 1;
+        this.ret = null;
+      }
+
+      _Class.prototype._fulfill = function() {
+        if (!--this.count) {
+          return this.continuation(this.ret);
+        }
+      };
+
+      _Class.prototype.defer = function(defer_params) {
+        var _this = this;
+        ++this.count;
+        return function() {
+          var inner_params, _ref;
+          inner_params = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
+          if (defer_params != null) {
+            if ((_ref = defer_params.assign_fn) != null) {
+              _ref.apply(null, inner_params);
+            }
+          }
+          return _this._fulfill();
+        };
+      };
+
+      return _Class;
+
+    })(),
+    findDeferral: function() {
+      return null;
+    },
+    trampoline: function(_fn) {
+      return _fn();
+    }
+  };
   __iced_k = __iced_k_noop = function() {};
 
   alert(2);
